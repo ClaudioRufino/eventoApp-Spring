@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>EventosApp</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css/">
+</head>
+<body>
+
+<div class="container">
+    <h4 class="mt-4 mb-4 bg-success text-light text-center p-2">LISTA DE EVENTOS</h4>
+    <!--    <hr>-->
+    <div class="text-left">
+        <a class="btn btn-primary mb-2" href="/cadastrarEvento">CADASTRAR</a>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Local</th>
+                <th>Data</th>
+                <th>Horario</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="evento: ${eventos}">
+                <td>
+                    <a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}">
+                        <span th:text="${evento.nome}"></span>
+                    </a>
+                </td>
+                <td><span th:text="${evento.local}"></span></td>
+                <td><span th:text="${evento.data}"></span></td>
+                <td><span th:text="${evento.horario}"></span></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
