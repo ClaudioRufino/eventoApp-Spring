@@ -3,12 +3,51 @@
 
 <body>
 
-    <div th:fragment="mensagemValidacao">
-        <div class="alert alert-warning alert-dismissible fade show" role="alert" th:if="${not #strings.isEmpty(mensagem)}">
-            <span th:text="${mensagem}"></span>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+<div th:fragment="mensagemValidacao">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" th:if="${not #strings.isEmpty(mensagem)}">
+        <span th:text="${mensagem}"></span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
+</div>
+
+<div th:fragment="mensagemSucesso">
+    <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${not #strings.isEmpty(mensagem)}">
+        <span th:text="${mensagem}"></span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+
+<div th:fragment="header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">CRUD</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cadastrar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Listar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Editar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Deletar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div th:fragment="footer">
+    <div class="bg-dark text-center text-light mt-3 p-4"><span>Todos os direitos reservados</span></div>
+</div>
 
 </body>
 </html>

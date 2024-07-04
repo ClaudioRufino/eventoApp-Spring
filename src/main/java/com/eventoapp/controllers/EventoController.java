@@ -8,7 +8,9 @@ import com.eventoapp.repository.EventoRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -68,5 +70,11 @@ public class EventoController {
         cr.save(convidado);
         attributes.addFlashAttribute("mensagem", "Convidado adicionado com sucesso!");
         return "redirect:/eventos/{codigo}";
+    }
+
+    @GetMapping("/teste")
+    public String testando(Model model){
+        model.addAttribute("mensagem", "Sou a mensagem vindo do controlador");
+        return "teste";
     }
 }
